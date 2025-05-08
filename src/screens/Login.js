@@ -2,13 +2,15 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, Alert, StyleSheet, Text } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firabaseConfig';
+import getAuth from 'firebase/auth';
+import app from '../../firabaseConfig';
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
   const handleLogin = () => {
+    const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email, senha)
       .then(() => {
         alert('Login realizado com sucesso!');

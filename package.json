@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~5.0.4",
+    "@firebase/auth": "^1.10.2",
     "@mapbox/polyline": "^1.2.1",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/drawer": "^7.3.11",
@@ -20,7 +21,7 @@
     "expo": "~53.0.7",
     "expo-location": "^18.1.4",
     "expo-status-bar": "~2.2.3",
-    "firebase": "^11.6.1",
+    "firebase": "^11.7.1",
     "mapbox": "^1.0.0-beta10",
     "react": "19.0.0",
     "react-dom": "19.0.0",

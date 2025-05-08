@@ -63,7 +63,7 @@ const RouteScreen = ({ route }) => {
         };
 
         const headers = {
-          Authorization: '5b3ce3597851110001cf62482df06148ab9a48c38ec2756b16ed9ff3', // Substitua por sua chave real da OpenRouteService
+          Authorization: '5b3ce3597851110001cf62482df06148ab9a48c38ec2756b16ed9ff3',
           'Content-Type': 'application/json',
         };
 

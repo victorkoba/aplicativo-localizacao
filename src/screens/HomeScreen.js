@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
 
@@ -22,7 +22,7 @@ export default function HomeScreen({ navigation }) {
 
   const handleNavigate = () => {
     if (!destination || !location) return;
-    navigation.navigate('Route', { destination, origin: location });
+    navigation.navigate('RouteScreen', { destination, origin: location });
   };
 
   return (
@@ -48,7 +48,9 @@ export default function HomeScreen({ navigation }) {
         onChangeText={setDestination}
       />
 
-      <Button title="Navegar" onPress={handleNavigate} />
+      <TouchableOpacity style={styles.button} onPress={handleNavigate}>
+        <Text style={styles.buttonText}>Navegar</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -69,5 +71,21 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 8,
     elevation: 2,
+  },
+  button: {
+    position: 'absolute',
+    bottom: 40,
+    left: 10,
+    right: 10,
+    backgroundColor: 'green',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+    elevation: 3,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });

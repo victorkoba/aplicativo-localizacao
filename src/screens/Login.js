@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Text, Alert } from 'react-native';
+import { View, TextInput, ScrollView, Image, StyleSheet, Text, Alert, TouchableOpacity } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
@@ -19,8 +19,6 @@ export default function LoginScreen({ navigation }) {
   };
 
   return (
-
-
     <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.card}>
             <View style={styles.logoContainer}>
@@ -41,17 +39,15 @@ export default function LoginScreen({ navigation }) {
             <TextInput
                 style={styles.input}
                 placeholder="Senha"
-                value={password}
-                onChangeText={setPassword}
+                value={senha}
+                onChangeText={setSenha}
                 secureTextEntry
                 placeholderTextColor="#aaa"
             />
 
-            <TouchableOpacity style={styles.button} onPress={tentarLogin}>
+            <TouchableOpacity style={styles.button} onPress={handleLogin}>
                 <Text style={styles.buttonText}>Entrar</Text>
             </TouchableOpacity>
-
-            <Text style={styles.botCadastrar} onPress={() => navigation.navigate("UsuarioAdd")}> Cadastre-se!</Text>
         </View>
     </ScrollView>
 );

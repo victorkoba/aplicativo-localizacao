@@ -19,29 +19,107 @@ export default function LoginScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login Estático</Text>
-      <TextInput
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        autoCapitalize="none"
-        style={styles.input}
-      />
-      <TextInput
-        placeholder="Senha"
-        value={senha}
-        onChangeText={setSenha}
-        secureTextEntry
-        style={styles.input}
-      />
-      <Button title="Entrar" onPress={handleLogin} />
-    </View>
-  );
-}
+
+
+    <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.card}>
+            <View style={styles.logoContainer}>
+                <Image style={styles.logo} source={require('../../src/assets/logo.1-removebg-preview.png')} />
+            </View>
+            <Text style={styles.title}>Login</Text>
+
+            <TextInput
+                style={styles.input}
+                placeholder="Email"
+                value={email}
+                onChangeText={setEmail}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                placeholderTextColor="#aaa"
+            />
+
+            <TextInput
+                style={styles.input}
+                placeholder="Senha"
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry
+                placeholderTextColor="#aaa"
+            />
+
+            <TouchableOpacity style={styles.button} onPress={tentarLogin}>
+                <Text style={styles.buttonText}>Entrar</Text>
+            </TouchableOpacity>
+
+            <Text style={styles.botCadastrar} onPress={() => navigation.navigate("UsuarioAdd")}> Cadastre-se!</Text>
+        </View>
+    </ScrollView>
+);
+};
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', padding: 20 },
-  input: { borderWidth: 1, padding: 10, marginBottom: 10, borderRadius: 5 },
-  title: { fontSize: 24, textAlign: 'center', marginBottom: 20 }
+container: {
+    flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+    backgroundColor: "#f4f4f4",
+},
+card: {
+    width: '90%',
+    backgroundColor: "#fff",
+    padding: 20,
+    borderRadius: 12,
+    elevation: 5,
+    alignItems: "center",
+},
+logoContainer: {
+    marginBottom: 20,
+},
+logo: {
+    width: 200,
+    height: 200,
+    marginTop:30,
+    resizeMode: "contain",
+},
+title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 25,
+    color: "#333",
+    
+},
+input: {
+    width: "100%",
+    padding: 12,
+    marginBottom: 30,
+    borderWidth: 1,
+    borderColor: "#ddd",
+    borderRadius: 8,
+    backgroundColor: "#f9f9f9",
+    color: "#333",
+},
+button: {
+    backgroundColor: "#838e39",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginTop: 10,
+    width: "100%",
+    alignItems: "center",
+},
+buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16,
+},
+botCadastrar: {
+    marginTop: 15,
+    color: "#6FA6C5",
+    fontSize: 14,
+    fontWeight: "bold",
+},
 });
+
+
+

@@ -24,7 +24,7 @@ export default function LoginScreen({ navigation }) {
     <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.card}>
             <View style={styles.logoContainer}>
-                <Image style={styles.logo} source={require('../../src/assets/logo.1-removebg-preview.png')} />
+                <Image style={styles.logo} source={require('../../src/assets/logo-maps.png')} />
             </View>
             <Text style={styles.title}>Login</Text>
 

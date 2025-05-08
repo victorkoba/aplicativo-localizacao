@@ -2,6 +2,7 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 import Login from "../screens/Login";
 import HomeScreen from "../screens/HomeScreen";
@@ -32,13 +33,17 @@ export default function NativeStack() {
 const Drawer = createDrawerNavigator();
 function DrawerNavigation() {
   return (
-      <Drawer.Navigator>
+      <Drawer.Navigator
+      screenOptions={{drawerActiveTintColor: '#838e39',
+        drawerInactiveTintColor: '#000000',
+      }}
+      >
         <Drawer.Screen
           name="Página Inicial"
           component={HomeScreen}
           options={{
-            drawerIcon: ({ color, size }) => (
-              <Ionicons name="home-outline" size={size} color={color} />
+            drawerIcon: ({ size }) => (
+              <Ionicons name="home-outline" size={size} color="black" />
             ),
           }}
         />
@@ -46,9 +51,9 @@ function DrawerNavigation() {
           name="Editar Perfil"
           component={EditarPerfil}
           options={{
-            drawerIcon: ({ color, size }) => (
-              <Ionicons name="person-outline" size={size} color={color} />
-            ),
+            drawerIcon: ({}) => (
+              <AntDesign name="user" size={24} color="black" />
+              ),
           }}
         />
       </Drawer.Navigator>

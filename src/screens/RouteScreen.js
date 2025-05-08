@@ -94,8 +94,7 @@ const RouteScreen = ({ route }) => {
         setRouteCoords(coords);
         setInfo(routeData.summary);
       } catch (error) {
-          Alert.alert('Erro', 'Destino não encontrado.'), 
-          navigation.navigate('Inicio');
+          Alert.alert('Erro', 'Destino não encontrado.'); 
       } finally {
         setLoading(false);
       }

@@ -33,7 +33,7 @@ export default function EditProfileStatic() {
           <Text style={styles.botaoTexto}>Trocar Imagem</Text>
         </Pressable>
         <TextInput style={styles.input} placeholder='Email' value={email} onChangeText={setEmail} editable={false} />
-        <TextInput style={styles.input} placeholder='Senha' value={senha} onChangeText={setSenha} secureTextEntry />
+        <TextInput style={styles.input} placeholder='Senha' value={senha} onChangeText={setSenha} editable={false} />
         <Pressable style={styles.botaoSalvar} onPress={salvarPerfil}>
           <Text style={styles.botaoTexto}>Salvar</Text>
         </Pressable>

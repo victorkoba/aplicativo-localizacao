@@ -28,15 +28,15 @@ function DrawerNavigation() {
   return (
       <Drawer.Navigator>
         <Drawer.Screen
-          name="HomeScreen"
+          name="Página Inicial"
           component={HomeScreen}
         />
         <Drawer.Screen
-          name="RouteScreen"
+          name="Página de Rotas"
           component={RouteScreen}
         />
         <Drawer.Screen
-          name="EditarPerfil"
+          name="Editar Perfil"
           component={EditarPerfil}
         />
       </Drawer.Navigator>

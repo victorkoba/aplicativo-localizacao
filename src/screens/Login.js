@@ -1,30 +1,26 @@
-// LoginScreen.js
 import React, { useState } from 'react';
-import { View, TextInput, Button, Alert, StyleSheet, Text } from 'react-native';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import getAuth from 'firebase/auth';
-import app from '../../firabaseConfig';
+import { View, TextInput, Button, StyleSheet, Text, Alert } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
+  // Credenciais fixas
+  const EMAIL_CORRETO = 'victor';
+  const SENHA_CORRETA = '123';
+
   const handleLogin = () => {
-    const auth = getAuth(app);
-    signInWithEmailAndPassword(auth, email, senha)
-      .then(() => {
-        alert('Login realizado com sucesso!');
-        navigation.navigate('Inicio'); // redireciona para a tela principal
-      })
-      .catch((error) => {
-        console.error(error);
-        alert('Erro ao fazer login', error.message);
-      });
+    if (email === EMAIL_CORRETO && senha === SENHA_CORRETA) {
+      Alert.alert('Login realizado com sucesso!');
+      navigation.navigate('Inicio');
+    } else {
+      Alert.alert('Erro', 'Email ou senha incorretos.');
+    }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login Firebase</Text>
+      <Text style={styles.title}>Login Estático</Text>
       <TextInput
         placeholder="Email"
         value={email}

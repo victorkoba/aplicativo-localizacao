@@ -6,8 +6,8 @@ export default function LoginScreen({ navigation }) {
   const [senha, setSenha] = useState('');
 
   // Credenciais fixas
-  const EMAIL_CORRETO = 'victor';
-  const SENHA_CORRETA = '123';
+  const EMAIL_CORRETO = 'sesi@gmail.com';
+  const SENHA_CORRETA = '707070';
 
   const handleLogin = () => {
     if (email === EMAIL_CORRETO && senha === SENHA_CORRETA) {

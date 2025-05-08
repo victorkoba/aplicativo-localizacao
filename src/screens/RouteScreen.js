@@ -35,10 +35,11 @@ const RouteScreen = ({ route }) => {
         }
 
         const location = response.data[0];
-        setDestCoords({
+        const coords = {
           latitude: parseFloat(location.lat),
           longitude: parseFloat(location.lon),
-        });
+        };
+        setDestCoords(coords)
       } catch (error) {
         console.error('Erro ao buscar coordenadas:', error);
         Alert.alert('Erro', 'Falha ao buscar o destino.');

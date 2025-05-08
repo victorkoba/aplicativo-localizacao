@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 75,
     borderWidth: 2,
-    borderColor: '#6FA6C5',
+    borderColor: "#838e39",
     marginBottom: 15,
   },
   input: {
@@ -66,14 +66,14 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   botao: {
-    backgroundColor: '#6FA6C5',
+    backgroundColor: "#838e39",
     padding: 10,
     borderRadius: 8,
     alignItems: 'center',
     marginVertical: 10,
   },
   botaoSalvar: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: "#838e39",
     padding: 12,
     borderRadius: 8,
     alignItems: 'center',

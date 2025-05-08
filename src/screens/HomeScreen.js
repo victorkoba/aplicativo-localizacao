@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, Platform } from 'react-native';
 import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
 
@@ -22,7 +22,7 @@ export default function HomeScreen({ navigation }) {
 
   const handleNavigate = () => {
     if (!destination || !location) return;
-    navigation.navigate('RouteScreen', { destination, origin: location });
+    navigation.navigate('Página de Rotas', { destination, origin: location });
   };
 
   return (
@@ -41,12 +41,15 @@ export default function HomeScreen({ navigation }) {
         </MapView>
       )}
 
-      <TextInput
-        style={styles.input}
-        placeholder="Digite o destino"
-        value={destination}
-        onChangeText={setDestination}
-      />
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder="Digite o destino"
+          value={destination}
+          onChangeText={setDestination}
+          placeholderTextColor="#666"
+        />
+      </View>
 
       <TouchableOpacity style={styles.button} onPress={handleNavigate}>
         <Text style={styles.buttonText}>Navegar</Text>
@@ -62,30 +65,42 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
   },
-  input: {
+  inputContainer: {
     position: 'absolute',
-    top: 40,
-    left: 10,
-    right: 10,
+    top: Platform.OS === 'android' ? 50 : 60,
+    left: 20,
+    right: 20,
     backgroundColor: 'white',
-    padding: 10,
-    borderRadius: 8,
-    elevation: 2,
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  input: {
+    padding: 14,
+    fontSize: 16,
+    color: '#333',
   },
   button: {
     position: 'absolute',
-    bottom: 40,
-    left: 10,
-    right: 10,
-    backgroundColor: 'green',
-    padding: 15,
-    borderRadius: 8,
+    bottom: 60,
+    left: 20,
+    right: 20,
+    backgroundColor: "#838e39",
+    paddingVertical: 16,
+    borderRadius: 12,
     alignItems: 'center',
-    elevation: 3,
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
   },
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 18,
   },
 });

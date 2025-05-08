@@ -3,13 +3,23 @@ import { View, Text, Alert, StyleSheet, ActivityIndicator } from 'react-native';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import axios from 'axios';
 import polyline from '@mapbox/polyline';
+import { useNavigation } from '@react-navigation/native';
 
 const RouteScreen = ({ route }) => {
-  const { origin, destination } = route.params;
+  const navigation = useNavigation();
+  const { origin, destination } = route.params || {};
   const [routeCoords, setRouteCoords] = useState([]);
   const [info, setInfo] = useState(null);
   const [loading, setLoading] = useState(true);
   const [destCoords, setDestCoords] = useState(null);
+
+  // Verifica se origin ou destination estão ausentes
+  useEffect(() => {
+    if (!origin || !destination) {
+      Alert.alert('Erro', 'Origem ou destino ausente. Retornando à tela inicial.');
+      navigation.navigate('Página Inicial');
+    }
+  }, []);
 
   // Buscar coordenadas do destino
   useEffect(() => {
@@ -41,7 +51,7 @@ const RouteScreen = ({ route }) => {
         };
         setDestCoords(coords)
       } catch (error) {
-        console.error('Erro ao buscar coordenadas:', error);
+        console.error('Erro ao buscar coordenadas:');
         Alert.alert('Erro', 'Falha ao buscar o destino.');
       }
     };
@@ -84,8 +94,8 @@ const RouteScreen = ({ route }) => {
         setRouteCoords(coords);
         setInfo(routeData.summary);
       } catch (error) {
-        console.error('Erro ao traçar rota:', error);
-        Alert.alert('Erro', 'Falha ao obter a rota.');
+          Alert.alert('Erro', 'Destino não encontrado.'), 
+          navigation.navigate('Inicio');
       } finally {
         setLoading(false);
       }

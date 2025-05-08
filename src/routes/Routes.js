@@ -1,6 +1,7 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Login from "../screens/Login";
 import HomeScreen from "../screens/HomeScreen";
@@ -19,6 +20,11 @@ export default function NativeStack() {
           name="Inicio"
           component={DrawerNavigation}
         />
+        <Stack.Screen
+          name="Página de Rotas"
+          component={RouteScreen}
+          options={{headerShown: true}}
+        />
       </Stack.Navigator>
   );
 }
@@ -30,14 +36,20 @@ function DrawerNavigation() {
         <Drawer.Screen
           name="Página Inicial"
           component={HomeScreen}
-        />
-        <Drawer.Screen
-          name="Página de Rotas"
-          component={RouteScreen}
+          options={{
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="home-outline" size={size} color={color} />
+            ),
+          }}
         />
         <Drawer.Screen
           name="Editar Perfil"
           component={EditarPerfil}
+          options={{
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="person-outline" size={size} color={color} />
+            ),
+          }}
         />
       </Drawer.Navigator>
   );
